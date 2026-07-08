@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Emi ❤️</title>
+    <style>
+        /* Fondo claro y limpio para que resalten la flor y la bailarina */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f6fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Contenedor principal texturizado y suave */
+        .main-card {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        /* Textos pedidos */
+        h1 {
+            color: #4a148c;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #1a237e;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        /* --- FLOR ANIMADA (LILA Y AZUL) --- */
+        .flower-box {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px auto;
+            animation: pulseBloom 3s infinite ease-in-out;
+        }
+
+        /* El centro dorado de la flor */
+        .flower-center {
+            position: absolute;
+            top: 55px;
+            left: 55px;
+            width: 30px;
+            height: 30px;
+            background: #ffd700;
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Pétalos distribuidos en círculo con colores lila y azul */
+        .petal {
+            position: absolute;
+            width: 45px;
+            height: 75px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            top: 32px;
+            left: 47px;
+            transform-origin: bottom center;
+            opacity: 0.85;
+        }
+
+        /* Alternancia de colores lila y azul en los pétalos */
+        .petal:nth-child(1) { transform: rotate(0deg); background: #9c27b0; }     /* Lila */
+        .petal:nth-child(2) { transform: rotate(60deg); background: #2196f3; }    /* Azul */
+        .petal:nth-child(3) { transform: rotate(120deg); background: #7b1fa2; }   /* Lila Oscuro */
+        .petal:nth-child(4) { transform: rotate(180deg); background: #1e88e5; }   /* Azul Oscuro */
+        .petal:nth-child(5) { transform: rotate(240deg); background: #b388ff; }   /* Lila Claro */
+        .petal:nth-child(6) { transform: rotate(300deg); background: #90caf9; }   /* Azul Claro */
+
+        /* Animación de la flor: gira suavemente y late */
+        @keyframes pulseBloom {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(20deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        /* --- BAILARINA ANIMADA EN MOVIMIENTO --- */
+        .ballerina {
+            font-size: 3.5rem;
+            margin-top: 15px;
+            display: inline-block;
+            animation: balletDance 4s infinite ease-in-out;
+        }
+
+        /* Animación de baile continuo (bamboleo y saltito) */
+        @keyframes balletDance {
+            0% { transform: translateY(0) rotate(0deg) scaleX(1); }
+            25% { transform: translateY(-12px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(-5deg) scaleX(-1); } /* Gira de lado */
+            75% { transform: translateY(-8px) rotate(3deg); }
+            100% { transform: translateY(0) rotate(0deg) scaleX(1); }
+        }
+
+        /* Partículas flotantes de fondo */
+        .dot {
+            position: absolute;
+            background: rgba(156, 39, 176, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp 7s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <h1>Te amo, Emi</h1>
+        <div class="subtitle">Que nunca falten tus flores a distancia 🌸✨</div>
+        
+        <div class="flower-box">
+            <div class="flower-center"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+        </div>
+
+        <div class="ballerina">💃</div>
+    </div>
+
+    <script>
+        // Generador de burbujitas decorativas de fondo
+        function crearParticula() {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            
+            dot.style.left = Math.random() * 100 + "vw";
+            const size = Math.random() * 12 + 6;
+            dot.style.width = size + "px";
+            dot.style.height = size + "px";
+            
+            // Colores mezclados lila/azul para las partículas flotantes
+            dot.style.background = Math.random() > 0.5 ? 'rgba(156, 39, 176, 0.15)' : 'rgba(33, 150, 243, 0.15)';
+            
+            const duration = Math.random() * 4 + 4;
+            dot.style.animationDuration = duration + "s";
+
+            document.body.appendChild(dot);
+            setTimeout(() => { dot.remove(); }, duration * 1000);
+        }
+        setInterval(crearParticula, 500);
+    </script>
+
+</body>
+</html>
