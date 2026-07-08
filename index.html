@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Emi ❤️</title>
+    <title>Para Emi, con todo mi amor</title>
     <style>
-        /* Fondo claro y limpio para que resalten la flor y la bailarina */
+        /* Estilos generales con fondo estilo lienzo texturizado */
         body {
             margin: 0;
             padding: 0;
@@ -13,162 +13,166 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: #f4f6fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fondo degradado suave en tonos lila y azul pastel, imitando acuarela */
+            background: radial-gradient(circle, #e0e4ff 0%, #f3e5f5 60%, #e1f5fe 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
             overflow: hidden;
             position: relative;
         }
 
-        /* Contenedor principal texturizado y suave */
-        .main-card {
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            padding: 40px 30px;
-            border-radius: 24px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.7);
+        /* MARCO DE FLORES Y ENREDADERAS (Estilo de la imagen de referencia) */
+        .page-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px dashed rgba(156, 39, 176, 0.25);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 20;
         }
 
-        /* Textos pedidos */
+        /* Detalles de flores en las esquinas del marco */
+        .page-border::before, .page-border::after {
+            content: "🌸 🌿";
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+        .page-border::before { top: -10px; left: -10px; }
+        .page-border::after { bottom: -10px; right: -10px; }
+
+        /* CONTENEDOR PRINCIPAL INTERFAZ PROFESIONAL */
+        .interface-container {
+            text-align: center;
+            z-index: 10;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        /* Textos estilizados con sombras suaves */
         h1 {
             color: #4a148c;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+            font-weight: normal;
             margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(74, 20, 140, 0.15);
         }
 
         .subtitle {
             color: #1a237e;
-            font-size: 1.1rem;
-            font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 0;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 3px rgba(26, 35, 126, 0.1);
         }
 
-        /* --- FLOR ANIMADA (LILA Y AZUL) --- */
-        .flower-box {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 30px auto;
-            animation: pulseBloom 3s infinite ease-in-out;
+        /* --- FLOR INTEGRAL SVG ANIMADA (LILA Y AZUL) --- */
+        .flower-wrapper {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 10px 25px rgba(103, 58, 183, 0.25));
+            /* Animación constante: late y rota sutilmente */
+            animation: majesticBloom 5s infinite ease-in-out;
         }
 
-        /* El centro dorado de la flor */
-        .flower-center {
-            position: absolute;
-            top: 55px;
-            left: 55px;
-            width: 30px;
-            height: 30px;
-            background: #ffd700;
-            border-radius: 50%;
-            z-index: 5;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-        }
-
-        /* Pétalos distribuidos en círculo con colores lila y azul */
-        .petal {
-            position: absolute;
-            width: 45px;
-            height: 75px;
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            top: 32px;
-            left: 47px;
-            transform-origin: bottom center;
-            opacity: 0.85;
-        }
-
-        /* Alternancia de colores lila y azul en los pétalos */
-        .petal:nth-child(1) { transform: rotate(0deg); background: #9c27b0; }     /* Lila */
-        .petal:nth-child(2) { transform: rotate(60deg); background: #2196f3; }    /* Azul */
-        .petal:nth-child(3) { transform: rotate(120deg); background: #7b1fa2; }   /* Lila Oscuro */
-        .petal:nth-child(4) { transform: rotate(180deg); background: #1e88e5; }   /* Azul Oscuro */
-        .petal:nth-child(5) { transform: rotate(240deg); background: #b388ff; }   /* Lila Claro */
-        .petal:nth-child(6) { transform: rotate(300deg); background: #90caf9; }   /* Azul Claro */
-
-        /* Animación de la flor: gira suavemente y late */
-        @keyframes pulseBloom {
+        @keyframes majesticBloom {
             0% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(20deg); }
+            50% { transform: scale(1.08) rotate(15deg); filter: drop-shadow(0 15px 35px rgba(33, 150, 243, 0.4)); }
             100% { transform: scale(1) rotate(0deg); }
         }
 
-        /* --- BAILARINA ANIMADA EN MOVIMIENTO --- */
-        .ballerina {
-            font-size: 3.5rem;
-            margin-top: 15px;
-            display: inline-block;
-            animation: balletDance 4s infinite ease-in-out;
-        }
-
-        /* Animación de baile continuo (bamboleo y saltito) */
-        @keyframes balletDance {
-            0% { transform: translateY(0) rotate(0deg) scaleX(1); }
-            25% { transform: translateY(-12px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(-5deg) scaleX(-1); } /* Gira de lado */
-            75% { transform: translateY(-8px) rotate(3deg); }
-            100% { transform: translateY(0) rotate(0deg) scaleX(1); }
-        }
-
-        /* Partículas flotantes de fondo */
-        .dot {
+        /* --- BAILARINA INTEGRADA AL FONDO --- */
+        .ballerina-silhouette {
             position: absolute;
-            background: rgba(156, 39, 176, 0.2);
-            border-radius: 50%;
+            font-size: 12rem;
+            color: #7b1fa2;
+            opacity: 0.08; /* Muy sutil, igual que la silueta difuminada de la imagen */
             pointer-events: none;
-            animation: floatUp 7s infinite linear;
+            z-index: 1;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Animación fluida de ballet y desvanecimiento continuo */
+            animation: etherealDance 8s infinite ease-in-out;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(105vh) scale(0); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        @keyframes etherealDance {
+            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.06; }
+            50% { transform: translate(-45%, -53%) scale(1.15) rotate(5deg); opacity: 0.12; }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.06; }
+        }
+
+        /* DESTELLOS MÁGICOS DE AMBIENTE */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatGlow 6s infinite ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translateY(110vh) translateX(0) scale(0); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) translateX(20px) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <h1>Te amo, Emi</h1>
-        <div class="subtitle">Que nunca falten tus flores a distancia 🌸✨</div>
-        
-        <div class="flower-box">
-            <div class="flower-center"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-        </div>
+    <div class="page-border"></div>
 
-        <div class="ballerina">💃</div>
+    <div class="ballerina-silhouette">💃</div>
+
+    <div class="interface-container">
+        <h1>Te amo, Emi</h1>
+        <div class="subtitle">Que nunca falten tus flores a distancia ✨</div>
+        
+        <div class="flower-wrapper">
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+                <circle cx="50" cy="50" r="10" fill="#ffca28" filter="drop-shadow(0 0 4px #ffb300)"/>
+                
+                <path d="M50,50 C40,20 60,20 50,50" fill="#9c27b0" opacity="0.85"/>
+                <path d="M50,50 C75,30 85,50 50,50" fill="#2196f3" opacity="0.85"/>
+                <path d="M50,50 C75,70 65,90 50,50" fill="#673ab7" opacity="0.85"/>
+                <path d="M50,50 C40,80 20,70 50,50" fill="#ba68c8" opacity="0.85"/>
+                <path d="M50,50 C15,60 25,30 50,50" fill="#1565c0" opacity="0.85"/>
+                <circle cx="50" cy="50" r="12" fill="none" stroke="#fff" stroke-width="0.5" stroke-dasharray="2"/>
+            </svg>
+        </div>
     </div>
 
     <script>
-        // Generador de burbujitas decorativas de fondo
-        function crearParticula() {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
+        // Sistema de partículas pastel flotantes (pétalos caídos y destellos)
+        const elementos = ['✨', '🌸', '✧', '🔹'];
+        function generarParticula() {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.innerText = elementos[Math.floor(Math.random() * elementos.length)];
             
-            dot.style.left = Math.random() * 100 + "vw";
-            const size = Math.random() * 12 + 6;
-            dot.style.width = size + "px";
-            dot.style.height = size + "px";
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.fontSize = (Math.random() * 14 + 10) + "px";
             
-            // Colores mezclados lila/azul para las partículas flotantes
-            dot.style.background = Math.random() > 0.5 ? 'rgba(156, 39, 176, 0.15)' : 'rgba(33, 150, 243, 0.15)';
+            // Colores suaves acordes a la paleta lila/azul
+            p.style.color = Math.random() > 0.5 ? '#b39ddb' : '#90caf9';
             
-            const duration = Math.random() * 4 + 4;
-            dot.style.animationDuration = duration + "s";
-
-            document.body.appendChild(dot);
-            setTimeout(() => { dot.remove(); }, duration * 1000);
+            const duracion = Math.random() * 3 + 5;
+            p.style.animationDuration = duration + "s";
+            
+            document.body.appendChild(p);
+            setTimeout(() => { p.remove(); }, duration * 1000);
         }
-        setInterval(crearParticula, 500);
+        // Crear partículas espaciadas para mantener la elegancia limpia
+        setInterval(generarParticula, 800);
     </script>
 
 </body>
